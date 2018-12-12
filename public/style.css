@@ -1,0 +1,93 @@
+body {
+   background-color: darkslategray;
+    color: antiquewhite;  
+    border-bottom-color: antiquewhite;
+}
+h1 {
+  text-align: center;
+    font-size: 90;
+    font-style: oblique;
+    border: solid;
+
+}
+h3 {
+text-align: center;
+    font-size: 23
+}
+
+button#register {
+  
+    border-color: antiquewhite;
+   background-color: antiquewhite;
+    
+    padding: 10px 20px;
+    font-size: 24px;
+    transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+   
+}
+
+button#login {
+  
+    border-color: antiquewhite;
+   background-color: antiquewhite;
+    
+    padding: 10px 20px;
+    font-size: 24px;
+    transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+   
+    
+}
+
+button#register:hover {
+    background-color: red;
+    color: white;
+}
+
+button#login:hover {
+    background-color: lightgreen;
+    color: white;
+}
+button#login:active {
+  background-color: green;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+button#register:active {
+  background-color: darkred;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+input[type=text],[type=password] {
+width: 97.7%;
+height: 34px;
+padding-left: 5px;
+margin-bottom: 20px;
+margin-top: 8px;
+box-shadow: 0 0 5px #00F5FF;
+border: 2px solid #00F5FF;
+color: #4f4f4f;
+font-size: 16px;
+}
+
+form#register {
+font-size: 20px;
+margin-top: 15px;
+background: linear-gradient(#00663d 30%, #darkslategray 70%);
+border: 1px solid darkslategray;
+padding: 7px 35px;
+color: white;
+text-shadow: 0px 1px 0px #13506D;
+font-weight: bold;
+border-radius: 2px;
+cursor: pointer;
+width: 100%;
+}
+
+
+

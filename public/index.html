@@ -1,0 +1,60 @@
+<html>
+    <head>
+        
+        
+ <title>GETTING STARTED WITH BRACKETS</title>
+        
+        <link rel="stylesheet" type = "text/css" href = "style.css">
+        <script src ="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script src ="app.js"></script>
+
+    </head>
+   
+<body>
+   <h1>This is an Online Diary </h1>
+    
+    <h3>Where you can save any information, whether its a to do list or financial information, this website will secure it here in the Online Diary! </h3>
+<p></p>
+    <label>Register</label>
+    <button id = "register">Register</button>
+    <label>Login</label>
+    <button id = "login">Login</button>
+    
+    
+    <form id ="login" onsubmit="">
+    Username: <br>
+        <input type = "text" id = "username"><br>
+        Password : <br>
+        <input type = "text" id = "password"><br>
+        
+    </form>
+    
+    
+        <button id = loginEnter>Login</button>
+    
+    
+    <form id = "register" onsubmit="">
+    Email : <br> 
+        <input type = "text" id = "email"><br>
+        Phone Number : <br> 
+        <input type = "text" id = "phoneNumber"><br>
+    
+    <button id ="registerEnter">Register</button>
+    </form>
+    <p id= "diaryP">Here is where you can keep anything private on your personal online Diary!</p>
+    
+    <textarea id = "diary" rows ="10" cols= "100">
+     </textarea>
+    
+    <button id ="diarySave">Save</button>
+    
+    
+    
+   
+    
+    
+    </body>
+
+</html>
+
