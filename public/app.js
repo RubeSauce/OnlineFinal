@@ -49,20 +49,15 @@
                   PhoneNumber = $("#phoneNumber").val();
                   Diary = $("textarea#diary").val();
                   
-                 person =  JSON.parse(localStorage.getItem("Person")) || [];
+                 
                   
     
-                  
-                  person.push({
-                     Username: Username,
-                     Password: Password,
-                     Email: Email,
-                     PhoneNumber: PhoneNumber,
-                     Diary: Diary
-                  });
+                  let user = {Username,Password,Email,PhoneNumber,Diary};
+        
+                 
                   
                   
-     axios.post('/register',person)
+     axios.post('/register',user)
          .then(function(response) {
                console.log(response.data);
               
@@ -73,15 +68,57 @@
 
                  
                  
-             }
+              }
       }) ;   
      
      
+         
      $("button#loginEnter").click(function(e){
          e.preventDefault();
-        person =  JSON.parse(localStorage.getItem("Person"))
+         
+         Username = $("#username").val();
+         Password = $("#password").val();
+         
+         let Login = {Username,Password};
+         
+         
+         
+                  axios.post('/login',Login)
+         .then(function(response) {
+                      
+               console.log(response.data);
+                      
+            $("button#diarySave").show();
+            $("p#diaryP").show();
+            $("form#login").hide();
+            $("form#register").hide(); 
+            $("button#loginEnter").hide();
+            $("textarea#diary").show();
+            $("button#register").hide();
+            $("button#login").hide();
+                      
+            console.log("approved")
+           })
+         
+         
+            .catch(function(error){
+               console.log(error);
+           });
+              
+     });
+    $("button#diarySave").click(function(e){
+         
+         
+         Diary = $("#diary").val();
+        
+          
+          
+     
+             
+     });
+    
        //Diary = (localStorage.getItem("Diary"))
-      for  ( i = 0 ; i< person.length ; i++) {
+     /* for  ( i = 0 ; i< person.length ; i++) {
          console.log(person[i]);
           console.log(Password);
            Username = $("#username").val();
@@ -103,22 +140,11 @@
                alert("ID not found");
           }
           
-      }
+      }*/
         
-                  axios.post('/login',person)
-         .then(function(response) {
-               console.log(response.data);
-              
-           })
-            .catch(function(error){
-               console.log(error);
-           });
-
-         
-         
-     });
+                
      
-      $("button#diarySave").click(function(){
+      /*$("button#diarySave").click(function(){
             Diary = $("textarea#diary").val();
           localStorage.setItem("Diary",Diary);
  });
@@ -143,7 +169,7 @@
           
         }
     
-         
+  */       
  });  //i need to make a specific diary connect to the specific person
 
 
