@@ -32,6 +32,10 @@
               
                });
      
+          $("button#christmas").click(function(){
+            document.body.style.bakground = "red";  
+          })
+     
      
               
           $("button#registerEnter").click(function(e){
@@ -106,16 +110,25 @@
            });
               
      });
+     
     $("button#diarySave").click(function(e){
-         
+         e.preventDefault();
          
          Diary = $("#diary").val();
         
-          
+          let serverDiary = {Diary};
+        
+        axios.post('/diary',serverDiary)
+         .then(function(response) {
           
      
-             
-     });
+        })
+        
+        .catch(function(error){
+               console.log(error);
+           });
+        
+        });
     
        //Diary = (localStorage.getItem("Diary"))
      /* for  ( i = 0 ; i< person.length ; i++) {

@@ -2,6 +2,10 @@ const express = require('express');
 const app = express();
 var data = express();
 
+
+
+
+
 app.use(express.static('public'));
 app.use(express.json()); 
                                  
@@ -57,7 +61,7 @@ app.post('/login', function(req,res){
                alert("ID not found");
           }
           
-          let login = {Username,Password};
+          let Login = {Username,Password};
          
           axios.post('/login',user)
          .then(function(response) {
@@ -73,7 +77,29 @@ app.post('/login', function(req,res){
      
 });                           
                                  
-                                 
-                                                                 
+  app.post('/diary', function(req,res){
+      
+      console.log(users[i]);
+      console.log(users[i].Diary);
+      Diary = req.body.Diary;
+      
+      let serverDiary = {Diary};
+      
+      axios.post('/diary',user)
+         .then(function(response) {
+               console.log(response.data);
+              
+           })
+            .catch(function(error){
+               console.log(error);
+           });
+          users.push(req.body.Diary);
+  });                               
+         
+
+
+
+
+
 app.listen(3000, () => { console.log('Server Started...');
 });
