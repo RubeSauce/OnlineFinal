@@ -9,9 +9,9 @@ var data = express();
 app.use(express.static('public'));
 app.use(express.json()); 
                                  
-
+// Array of the users
  var users = [];
-   
+   // base of the website
     app.get('/',function(req,res){
    res.render('index', {
     title: 'Users',
@@ -19,7 +19,7 @@ app.use(express.json());
 });
 });
 
-    
+    // Register section of the website
     app.post('/register', function(req,res){
      /*var newUser = {
        username: req.body.Username,
@@ -35,10 +35,10 @@ app.use(express.json());
         
 });
 
-
+//Login section of the website
 app.post('/login', function(req,res){
                     
-     for  ( i = 0 ; i< users.length ; i++) {
+     for  (let i = 0 ; i< users.length ; i++) {
           
          console.log(users[i]);
          console.log(users[i].Password);
@@ -58,43 +58,80 @@ app.post('/login', function(req,res){
          }
           
           else {
-               alert("ID not found");
+               
           }
           
           let Login = {Username,Password};
          
-          axios.post('/login',user)
-         .then(function(response) {
-               console.log(response.data);
-              
-           })
-            .catch(function(error){
-               console.log(error);
-           });
+          
           
       }
 
      
-});                           
-                                 
-  app.post('/diary', function(req,res){
-      
+});     
+// Diary section of the website
+        app.post('/diary', function(req,res){
+                    
+     for  ( let i = 0 ; i< users.length ; i++) {
+          
+         console.log(users[i]);
+         console.log(users[i].Diary);
+          
+           Username = req.body.Username;
+           Password = req.body.Password;
+           Diary = req.body.Diary;
+         
+         
+          if (Password == users[i].Password && Username == users[i].Username) {
+             
+             users[i].Diary = Diary; 
+             let serverLogin = {Username,Password,Diary};
+              
+              
+              
+             res.send(serverLogin);
+              
+             
+            
+              
+              console.log("approved")
+             
+         }
+          
+        
+      }
+
+     
+});                          
+  /*app.post('/diary', function(req,res){
+     
+      for  (let i = 0 ; i< users.length ; i++) {
+          
       console.log(users[i]);
       console.log(users[i].Diary);
+          
+      Username = req.body.Username;
+      Password = req.body.Password;
       Diary = req.body.Diary;
-      
+          
+    if (Password == users[i].Password && Username == users[i].Username) {
+             
+              let serverDiary = {Diary};
+             res.send(serverDiary);
+              
+              console.log("approved")
+             
+         }  
+      else {
+               
+          }
+          
       let serverDiary = {Diary};
       
-      axios.post('/diary',user)
-         .then(function(response) {
-               console.log(response.data);
-              
-           })
-            .catch(function(error){
-               console.log(error);
-           });
+      
           users.push(req.body.Diary);
-  });                               
+      }
+  });       */                        
          
 
 

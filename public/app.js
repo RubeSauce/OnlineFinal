@@ -9,20 +9,20 @@
      var PhoneNumber;
      var Diary;
      var person = [] ;
-     
+     //starts the page as a register or login screen
      $("button#diarySave").hide();
      $("p#diaryP").hide();
      $("form#login").hide();
      $("form#register").hide();
      $("button#loginEnter").hide();
      $("textarea#diary").hide();
-     
+     // Login button shows everything needed for the login
                $("button#login").click(function(){         
                    $("form#login").show();
                    $("button#loginEnter").show();
                    $("form#register").hide();
                });    
-     
+       // Register button shows everything needed for the register
           $("button#register").click(function(){  
               
               
@@ -31,13 +31,13 @@
               $("button#loginEnter").hide();
               
                });
-     
+     //different themes for your Diary
           $("button#christmas").click(function(){
             document.body.style.bakground = "red";  
           })
      
      
-              
+     //  It makes sure that the fields are filled out and if they are valid it saves that persons information
           $("button#registerEnter").click(function(e){
                 $ ("form#register").hide();
               $("form#login").hide();
@@ -55,12 +55,12 @@
                   
                  
                   
-    
+    //packages the information in "user"
                   let user = {Username,Password,Email,PhoneNumber,Diary};
         
                  
                   
-                  
+      // sends the "register to the server"            
      axios.post('/register',user)
          .then(function(response) {
                console.log(response.data);
@@ -76,7 +76,7 @@
       }) ;   
      
      
-         
+      // saves the Login, Username and password   
      $("button#loginEnter").click(function(e){
          e.preventDefault();
          
@@ -86,12 +86,12 @@
          let Login = {Username,Password};
          
          
-         
+        // lets server see the "login" 
                   axios.post('/login',Login)
          .then(function(response) {
                       
                console.log(response.data);
-                      
+          // Shows the login screen            
             $("button#diarySave").show();
             $("p#diaryP").show();
             $("form#login").hide();
@@ -110,18 +110,20 @@
            });
               
      });
-     
+     // Sends the server the "diary"
     $("button#diarySave").click(function(e){
          e.preventDefault();
-         
+        
+         Username = $("#username").val();
+         Password = $("#password").val();
          Diary = $("#diary").val();
         
-          let serverDiary = {Diary};
+          let serverDiary = {Username,Password,Diary};
         
         axios.post('/diary',serverDiary)
          .then(function(response) {
           
-     
+     console.log(response.data)
         })
         
         .catch(function(error){
@@ -170,12 +172,10 @@
            $("textarea#Diary").val(localStorage.getItem("Diary"));
             $("Person").val();
         }
-
         function saveSettings() {
             var Username = document.getElementById(Username).value;
             var Password = document.getElementById(Password).value;
             var Diary = document.getElementById(Diary).value;
-
             localStorage.setItem("Username",Username)
             localStorage.setItem("Password",Password)
             localStorage.setItem("Diary",Diary)
@@ -185,6 +185,9 @@
   */       
  });  //i need to make a specific diary connect to the specific person
 
+
+
+            
 
 
                    

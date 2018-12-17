@@ -62,13 +62,6 @@ button#register:active {
   box-shadow: 0 5px #666;
   transform: translateY(4px);
 }
-button#christmas {
-  background-color: antiquewhite;
-  color: black;
-    
-    
-    
-}
 
 input[type=text],[type=password] {
 width: 97.7%;
